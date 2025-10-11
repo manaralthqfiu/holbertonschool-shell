@@ -2,5 +2,5 @@
 for item in *; do
 if [ -d "$item" ]; then
 chmod u+x,g+x,o+x "$item"
-ifi
+if
 done
