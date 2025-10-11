@@ -1,2 +1,6 @@
 #!/bin/bash
-find . -type d -exec chmod a+X {} \;
+for item in *; do
+  if [ -d "$item" ]; then
+    chmod u+x,g+x,o+x "$item"
+  fi
+done
