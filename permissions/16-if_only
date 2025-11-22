@@ -1,4 +1,7 @@
 #!/bin/bash
-# Check if file 'hello' exists and is owned by 'guillaume'
-if [ "$(stat -c %U hello 2>/dev/null)" = "guillaume" ];then chown vincent hello
+# Script that changes the owner of the file 'hello' to vincent
+# only if it is currently owned by guillaume
+
+if [ "$(stat -c %U hello 2>/dev/null)" = "guillaume" ]; then
+    chown vincent hello
 fi
