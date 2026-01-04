@@ -1,24 +1,2 @@
 #!/bin/bash
-# Change owner of "hello" to "vincent" only if current owner is "guillaume".
-
-# Ensure file exists
-if [ ! -e hello ]; then
-	echo "File 'hello' not found."
-	exit 1
-fi
-
-# Ensure target users exist
-if ! id -u guillaume >/dev/null 2>&1; then
-	echo "User 'guillaume' does not exist. No change performed."
-	exit 0
-fi
-if ! id -u vincent >/dev/null 2>&1; then
-	echo "User 'vincent' does not exist. No change performed."
-	exit 0
-fi
-
-# Apply conditional change
-if [ "$(stat -c %U hello)" = "guillaume" ]; then
-	chown vincent hello
-fi
-
+if [ "$(stat -c %U hello)" = "guillaume" ]; then chown vincent hello; fi
